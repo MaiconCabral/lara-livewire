@@ -3,7 +3,7 @@
     <h1 class="text-4xl py-6 font-bold h-24">Tweets</h1>
     <p>{{$content}}</p>
 
-    <form method="post" wire:submit.prevent="create" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-8">
+    <form method="post" wire:submit.prevent="create" class="bg-white rounded px-8 pt-6 pb-8 mb-8">
         <label class="block text-gray-700 text-sm font-bold mb-4" for="username">
             Tweet
         </label>
@@ -19,12 +19,23 @@
     @foreach ($tweets as $tweet)
     <div class="flex m-8 bg-white shadow-md rounded p-4">
         <div class="w-1/8 pl-3 text-center">
-           
-            {{-- $tweet->user->name --}}
+            @if ($tweet->user->photo)
+                <img src="{{ url("storage/{$tweet->user->photo}") }}" alt="{{ $tweet->user->name }}" class="rounded-full h-10 w-10">
+            @else
+                <img src="{{ url('imgs/avatar_default.png') }}" alt="{{ $tweet->user->name }}" class="rounded-full h-10 w-10">
+            @endif
+            <br>
+            {{$tweet->user->name}}
         </div>
         <div class="w-7/8 pl-3 inline-block align-text-middle">
             {{ $tweet->content }}
             
+                @if ($tweet->likes->count())
+                    <a href="#" wire:click.prevent="unlike({{ $tweet->id }})" class="text-red-500">Descurtir</a>
+                @else
+                    <a href="#" wire:click.prevent="like({{ $tweet->id }})" class="text-teal-500">Curtir</a>
+                @endif
+          
         </div>
     </div>
     @endforeach
