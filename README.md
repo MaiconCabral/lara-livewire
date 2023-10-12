@@ -2,8 +2,18 @@
 
 <p align="center">Livewire Tweets </p>
 
-![livewire-tweets](https://github.com/MaiconCabral/lara-livewire/assets/44178051/fd9565c2-17fe-4c33-9bc7-b678578c0275)
+![livewire-tweets](https://github.com/MaiconCabral/lara-livewire/assets/44178051/14e5b7fe-a0e8-4ec8-a5ce-6c6b9ff842c2)
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#Resumo
+
+Nesse projeto temos um mecanismo de tweets usando o livewire para ter experiência SPA.
+
+# Escopo
+
+<ul>
+    <li>Laravel</li>
+    <li>Livewire</li>
+    <li>JetStream</li>
+</ul>
+
